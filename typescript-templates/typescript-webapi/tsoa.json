@@ -1,0 +1,41 @@
+{
+    "swagger":{
+      "outputDirectory":"./src",
+      "entryFile":"./src/server.ts",
+      "name":"TypeScript ECS Template",
+      "tags":[
+        {
+          "name":"LiveCheck",
+          "description":"Live Check endpoint.",
+          "externalDocs":{
+            "description":"Find out more about live check.",
+            "url":"https://typescript-ecs-template.io/livecheck"
+          }
+        }, {
+          "name": "HelloWorld",
+          "description": "Hello World Sample endpoint",
+          "externalDocs": {
+            "description": "Find out more about hello world.",
+            "url": "https://typescript-ecs-template.io/helloworld"
+          }
+        }
+      ],
+      "securityDefinitions":{
+        "auth0":{
+          "type":"oauth2",
+          "description": "Authentication with Auth0",
+          "flow":"implicit",
+          "authorizationUrl":"https://cimpress.auth0.com/authorize",
+          "scopes": {}
+        }
+      },
+      "security": [{
+        "auth0": []
+      }]
+    },
+    "routes":{
+      "authenticationModule":"./src/utils/authentication.ts",
+      "entryFile":"./src/server.ts",
+      "routesDir":"./src"
+    }
+}

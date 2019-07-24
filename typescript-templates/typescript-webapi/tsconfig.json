@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "./src",
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "lib": ["es2015", "es2016", "es2017", "es2018", "dom"],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noImplicitAny": false,
+        "outDir": "./build",
+        "preserveConstEnums": true,
+        "removeComments": true,
+        "newLine": "LF",
+        "resolveJsonModule": true,
+        "sourceMap": false,
+        "target": "es2017"
+    },
+    "typeAcquisition": {
+        "enable": true
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

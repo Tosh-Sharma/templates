@@ -1,0 +1,122 @@
+{
+	"basePath": "/",
+	"consumes": [
+		"application/json"
+	],
+	"definitions": {
+		"HelloWorld": {
+			"properties": {
+				"helloWorld": {
+					"type": "string"
+				},
+				"id": {
+					"type": "number",
+					"format": "double"
+				},
+				"isIndexed": {
+					"type": "boolean",
+					"x-nullable": true
+				}
+			},
+			"required": [
+				"helloWorld",
+				"id"
+			],
+			"type": "object"
+		}
+	},
+	"info": {
+		"title": "TypeScript ECS Template",
+		"version": "1.0.0",
+		"description": "A template to start writing code in TypeScript. Along with required dependencies.",
+		"license": {
+			"name": "ISC"
+		}
+	},
+	"paths": {
+		"/livecheck": {
+			"get": {
+				"operationId": "LiveCheck",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"OK": {
+						"description": "",
+						"schema": {
+							"type": "object"
+						}
+					}
+				},
+				"description": "This is the livecheck endpoint. It shows the application name and also the uptime in seconds.",
+				"summary": "Live Check Endpoint",
+				"tags": [
+					"LiveCheck"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/helloworld": {
+			"get": {
+				"operationId": "HelloWorld",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"OK": {
+						"description": "",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/HelloWorld"
+							}
+						}
+					}
+				},
+				"description": "This is a simple Get Endpoint that returns an array\r\naccording to the model defined in Models/HelloWorld .",
+				"summary": "Get HelloWorld",
+				"tags": [
+					"HelloWorld"
+				],
+				"security": [
+					{
+						"auth0": []
+					}
+				],
+				"parameters": []
+			}
+		}
+	},
+	"produces": [
+		"application/json"
+	],
+	"swagger": "2.0",
+	"securityDefinitions": {
+		"auth0": {
+			"type": "oauth2",
+			"description": "Authentication with Auth0",
+			"flow": "implicit",
+			"authorizationUrl": "https://cimpress.auth0.com/authorize",
+			"scopes": {}
+		}
+	},
+	"tags": [
+		{
+			"name": "LiveCheck",
+			"description": "Live Check endpoint.",
+			"externalDocs": {
+				"description": "Find out more about live check.",
+				"url": "https://typescript-ecs-template.io/livecheck"
+			}
+		},
+		{
+			"name": "HelloWorld",
+			"description": "Hello World Sample endpoint",
+			"externalDocs": {
+				"description": "Find out more about hello world.",
+				"url": "https://typescript-ecs-template.io/helloworld"
+			}
+		}
+	]
+}
